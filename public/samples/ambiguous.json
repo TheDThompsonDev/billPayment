@@ -1,0 +1,26 @@
+{
+  "vendorName": {
+    "value": "Dallas Water Utilities",
+    "confidence": 0.99
+  },
+  "accountNumber": {
+    "value": "Unclear",
+    "confidence": 0.83
+  },
+  "invoiceNumber": {
+    "value": "DW-6842",
+    "confidence": 0.99
+  },
+  "amount": {
+    "value": 6842,
+    "confidence": 0.99
+  },
+  "dueDate": {
+    "value": "2026-10-23",
+    "confidence": 0.99
+  },
+  "serviceAddress": {
+    "value": "Main St, Dallas",
+    "confidence": 0.87
+  }
+}

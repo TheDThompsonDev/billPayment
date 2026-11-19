@@ -1,0 +1,80 @@
+{
+  "token": null,
+  "tokenSource": "No session hook token or packet path was supplied; automatic enforcement is unverified.",
+  "response": "Fixed. All 11 hosted demo domains are now registered as simulations.\n\n`Demo sign-in → Invoice check → Simulated payment → Receipt`\n\nYour **Copper Ridge $518.70 bill is now PAID**, with receipt **PAY-DB61770F**. I verified one successful payment in both your app and the hosted portal. No real money moved.\n\nBrightwater and Northline also passed previews through the final submission step. **47 automated tests and 3 browser regression checks passed.**\n\n[Refresh your bill](http://127.0.0.1:3002/bills/cmv2x5hp6000x372g80f6occh).\n\nSay expand for details.",
+  "status": "ready",
+  "checks": [
+    {
+      "criterion": "Hosted fictional portals are executable without enabling real payments",
+      "result": "passed",
+      "evidence": "Exact origin configuration registers 11 supplied demo domains; negative tests reject unknown origins and lookalikes. Local token/receipt protocol remains separate."
+    },
+    {
+      "criterion": "Selected approved bill completes on its hosted portal",
+      "result": "passed",
+      "evidence": "Copper Ridge local workflow PAID and hosted ledger paid agree on 51870 cents, BILL-1001, receipt PAY-DB61770F; exactly one payment attempt. Screenshot visually inspected."
+    },
+    {
+      "criterion": "Different hosted flows and existing workflows remain supported",
+      "result": "passed",
+      "evidence": "Brightwater and Northline reached pre-submit boundary without payments. npm test 47/47; production build and TypeScript passed; focused Chromium regression 3/3."
+    },
+    {
+      "criterion": "Result and limits are accurately conveyed",
+      "result": "passed",
+      "evidence": "Final distinguishes domains registered from three journeys exercised; documentation retains failed pre-submit attempts, proof scope, mock-vs-hosted testing and unverified completion hook."
+    }
+  ],
+  "humanReview": {
+    "answersRequest": true,
+    "understandable": true,
+    "visualAddsInformation": true,
+    "limitationsDisclosed": true
+  },
+  "artifacts": [
+    {
+      "path": "src/domain/payments/payment-destination.ts",
+      "sha256": "5a4156066b38e269b09cd0ac4f02828877398a9bf90dce8d9bc0117f1bcc7318"
+    },
+    {
+      "path": "src/services/browser-payment-agent.ts",
+      "sha256": "58231471dde80d37a1d8183012df8a311c83a0940524018338abcc65c7b8b385"
+    },
+    {
+      "path": "src/components/payment-navigation-panel.tsx",
+      "sha256": "fd9072723495b8f4bc9a2dd8f3962f43c3ae40d49e8182a513f3d31ca3289033"
+    },
+    {
+      "path": ".env.example",
+      "sha256": "ad2b53445fbf96f7b3858eb4cd050db9e499b93a300eca4a7e2f1ed2a7cb629a"
+    },
+    {
+      "path": "tests/hosted-demo.test.ts",
+      "sha256": "14dee1e39cca4201caae2869e91aa02db46c4382537bb3da337ac096058d9af3"
+    },
+    {
+      "path": "tests/workflow.test.ts",
+      "sha256": "4c09b8ec1d339944e74a94e94b15baf49d93df5b4ed65a941007534ea5e00797"
+    },
+    {
+      "path": "scripts/verify-hosted-demo-preview.ts",
+      "sha256": "fb5785c60531d9ecc778db7ad83e38902ebf4d09969a507318a9f4cbe54ec972"
+    },
+    {
+      "path": "README.md",
+      "sha256": "b1b38f4fdb94f3aeb2914f47c41eefaa437241897bf47806ee28454d776aa29f"
+    },
+    {
+      "path": "docs/impact-map.md",
+      "sha256": "ad8db9bd5a57c89af8f641c2498cce1cc87b30203d182ead782604071562b289"
+    },
+    {
+      "path": "docs/verification.md",
+      "sha256": "caf81c896062a51ef57a90144d3948546f0d8731de1fb96217a0afab29368f75"
+    },
+    {
+      "path": "docs/hosted-demo-results.json",
+      "sha256": "c24f573997d7acf8e5148b15db968c1ed9a823c0c4a6b5f93b528e2063c48458"
+    }
+  ]
+}

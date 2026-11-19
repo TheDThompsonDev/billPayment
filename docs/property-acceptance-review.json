@@ -1,0 +1,95 @@
+{
+  "token": null,
+  "tokenSource": "No session token supplied; automatic hook enforcement is unverified.",
+  "response": "Implemented and running locally. **Alder Creek Workshop** has been created as a pending property.\n\nInvoice → property created → **Accept property** → normal approval checks\n\n[Open your bill](http://127.0.0.1:3002/bills/cmv2vp3rg000037mowe80c415) to see the notice and accept it. The notice shows the address and vendor/account being connected. Acceptance is recorded in the audit trail.\n\nVerified with **33 tests, two browser scenarios, and a successful build**. Your property is still awaiting your acceptance.\n\nSay expand for details.",
+  "status": "ready",
+  "checks": [
+    {
+      "criterion": "Create pending property and notify user before activation",
+      "result": "passed",
+      "evidence": "Live bill API shows PENDING_ACCEPTANCE Alder Creek Workshop with canonical property/payment null. Same-origin reread and advance actions succeeded."
+    },
+    {
+      "criterion": "Acceptance resumes normal checks and preserves authority",
+      "result": "passed",
+      "evidence": "33 tests pass; exact PDF browser test confirms notice, reload, directory, acceptance, persisted vendor/account and manager approval without payment. Existing correction scenario also passes. Production build/typecheck pass."
+    },
+    {
+      "criterion": "Human-readable desktop/mobile notice",
+      "result": "passed",
+      "evidence": "Inspected desktop and mobile screenshots; waited for sidebar resize animation and reran new-property browser test successfully."
+    }
+  ],
+  "humanReview": {
+    "answersRequest": true,
+    "understandable": true,
+    "visualAddsInformation": true,
+    "limitationsDisclosed": true
+  },
+  "artifacts": [
+    {
+      "sha256": "83849f78e88d19dfb8991138a2cf8bb627f2289c715b232994f1c5289bf15421",
+      "path": "prisma/schema.prisma"
+    },
+    {
+      "sha256": "606967f7954c41719288280fbb1cc732944eb97ef23d95cfb885aa40dc569826",
+      "path": "src/services/property-onboarding.ts"
+    },
+    {
+      "sha256": "34334270538ba80e40379bdb9b278a7e85aacd57d23dd5ab8585696c4bf6eae4",
+      "path": "src/services/human-actions.ts"
+    },
+    {
+      "sha256": "183c5c3c9356c02703bd100c1836b158c48d875a7130260fe56153377059b28a",
+      "path": "src/workflows/bill-workflow.ts"
+    },
+    {
+      "sha256": "200cb7ee0ba2fa2d5a40424ce32460f918159dbea354c87ae8b0c78873483a33",
+      "path": "src/ai/pdf-text-understanding.ts"
+    },
+    {
+      "sha256": "5d949c3d61e9cc056d843afff0328477f14291a84df8d57b6f5693daa06c810f",
+      "path": "src/ai/bill-understanding.ts"
+    },
+    {
+      "sha256": "633fe6513cb6b61321e55c22b275fbafe27f6e527e5c70dbc964f06e6ea43f2b",
+      "path": "src/app/api/bills/[id]/route.ts"
+    },
+    {
+      "sha256": "64d3ca453fa253721eb2e85699bb1a1357d442cb94377005900455f671441df2",
+      "path": "src/app/bills/[id]/page.tsx"
+    },
+    {
+      "sha256": "80efebe1a84590e6ee6842f00d16f3de3c5a90eb3ce03fcccf5d90026cd24492",
+      "path": "src/components/bill-detail.tsx"
+    },
+    {
+      "sha256": "79a2e9b75f28cb79d396ffbad7e7c1e5d54fffcf4631a06019b4a8ca67182741",
+      "path": "src/app/properties/page.tsx"
+    },
+    {
+      "sha256": "3e7bc1ebdfae703ce003cdd6f8989b231f4e1b6c58b0acda11d80219d5d8eddf",
+      "path": "tests/workflow.test.ts"
+    },
+    {
+      "sha256": "cccaeb50a11a32f579f2bf328080654a975e86eb0fdb8319de6efb2aeba14135",
+      "path": "tests/pdf-understanding.test.ts"
+    },
+    {
+      "sha256": "da2f3fb22122d6be60101043d0441a5652ed5d2300495ca8bea5d8c36ec0b0b3",
+      "path": "e2e/demo.spec.ts"
+    },
+    {
+      "sha256": "80f800599b1d822aecc636a7a78b140247246371d5ede59ba971315810396f47",
+      "path": "README.md"
+    },
+    {
+      "sha256": "104c52b8b2d2a83b59801d25efc943b93cd364db2ff5d94655cf8c29826bb05f",
+      "path": "docs/impact-map.md"
+    },
+    {
+      "sha256": "ca617032c87a689404b2244bf4cf571538681210b8825d8fe42734fa060ff440",
+      "path": "docs/verification.md"
+    }
+  ]
+}

@@ -1,0 +1,411 @@
+{
+  "token": null,
+  "tokenSource": "No active completion hook supplied a token or packet path. This is an agent-authored self-review only.",
+  "response": "Built and running: [Open DSD Property Bill Automation](http://127.0.0.1:3000).\n\nIncludes 12 properties, 84 seeded bills, all five scenarios, uploads, human review, approvals, and audit timelines.\n\nDocument → interpretation → deterministic checks → review/approval → simulated payment\n\nVerified: 14 domain/workflow tests, 4 browser tests, production build, and zero npm audit vulnerabilities.\n\n[Setup and kickoff guide](C:/Users/danny/Documents/coding/cycstack/billPayment/README.md). Restart with `npm start`.\n\nPayments and identities are demo-only. Live AI and automatic delivery-hook enforcement remain unverified.\n\nSay expand for details.",
+  "status": "ready",
+  "checks": [
+    {
+      "criterion": "Runnable seeded modular application and all requested screens",
+      "result": "passed",
+      "evidence": "npm run db:setup and demo:reset seeded 12 properties, six vendors, 72 accounts, 84 bills; production build and route navigation passed."
+    },
+    {
+      "criterion": "Deterministic business rules and guarded payments",
+      "result": "passed",
+      "evidence": "npm test: 14 passing tests including duplicate/concurrency, thresholds, authority, invalid states, anomalies, independent payment safeguards and retry."
+    },
+    {
+      "criterion": "End-to-end demonstration, uploads, review and approval",
+      "result": "passed",
+      "evidence": "npm run test:e2e: 4 passing Chromium tests, zero failures; all five scenarios, PDF byte round-trip, manual entry, unknown-file review, origin rejection and mobile navigation."
+    },
+    {
+      "criterion": "Readable presentation and maintainable source",
+      "result": "passed",
+      "evidence": "Desktop, review and mobile screenshots inspected; PDFs rendered and inspected; formatted TypeScript modules and README teaching map. npm run typecheck passed; npm audit reports zero vulnerabilities."
+    }
+  ],
+  "humanReview": {
+    "answersRequest": true,
+    "understandable": true,
+    "visualAddsInformation": true,
+    "limitationsDisclosed": true
+  },
+  "limitations": [
+    "Live AI API not exercised with paid key.",
+    "Local persona switch is demonstration identity only.",
+    "No financial institutions integrated.",
+    "Processing advances while bill detail is open.",
+    "Automatic CYC hook enforcement is unverified."
+  ],
+  "artifacts": [
+    {
+      "path": ".env.example",
+      "sha256": "434ac62ff32c8c6c2d1590d0605c3260594bb2eb9a12a03daaf9eb3c65d7d37f"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "1fd4554c8bc64f4f3b32602059f0d55dfecd70da681f7e3f85e4440339a9e7f3"
+    },
+    {
+      "path": ".prettierignore",
+      "sha256": "b4d780bd451289f2f703876a7c2a9d5e363e081f80bc355b2d565331843e5a52"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "63f2c50380ed6303237cce215ce27af1d620d094c215e28d1b1538a3c070e3bb"
+    },
+    {
+      "path": "CLAUDE.md",
+      "sha256": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49"
+    },
+    {
+      "path": "components.json",
+      "sha256": "856960145c5f071a8908e491bcb3fd71aadb7faeae209d7afe97b2b1f268c351"
+    },
+    {
+      "path": "docs/dashboard-review.png",
+      "sha256": "bf7a9fa5f122c1171e2dcac1986a3efc3bd87ff394ae0bf1a4f6d4c0da53be5f"
+    },
+    {
+      "path": "docs/dashboard.png",
+      "sha256": "0f24934ee4d80a0568eb477599bdb14928d734771a5801aa29c90aacf9f77e80"
+    },
+    {
+      "path": "docs/happy-path.png",
+      "sha256": "1ff34b4afee0a7992f0fbf367d8cd89c64dcc47da8055473ed03f6c548907699"
+    },
+    {
+      "path": "docs/impact-map.md",
+      "sha256": "ef83e67444d9fe376a4bccb8a51ff46ddd942915eb3ba96b4d4525728cd413e0"
+    },
+    {
+      "path": "docs/mobile-before.png",
+      "sha256": "7711ed51dadfc9f33ac1c281aff8329488a42d8fd3678e2b01c414f0db8f8caa"
+    },
+    {
+      "path": "docs/mobile-review.png",
+      "sha256": "c6a8b428a4cc8cfab45857c500a87638e191753e5198e9c7026b93085327c89d"
+    },
+    {
+      "path": "docs/review-workflow.png",
+      "sha256": "8e42ec5bc8edb0a57e7850df968e06fcc0feb9047cbf4d54450f3cbf813525f7"
+    },
+    {
+      "path": "docs/sample-ambiguous-review.png",
+      "sha256": "312e1503e3f71f659a627271db5f11e55abf05f1503e779343dbe6621fc7cb1b"
+    },
+    {
+      "path": "docs/sample-approval-review.png",
+      "sha256": "05b2aac7c71a56abb4f82878264c6ea1f09668da42af459bbe937994c600d7fe"
+    },
+    {
+      "path": "docs/sample-failure-review.png",
+      "sha256": "6256b6970c0fd45e2ee59effdfd46771aa46b4c3f8be0103ab11ed5097a2865e"
+    },
+    {
+      "path": "docs/sample-review.png",
+      "sha256": "178c46c52f103d783321e4eceb098351117dfb8e2c8219b1a78d8193351d004b"
+    },
+    {
+      "path": "docs/verification.md",
+      "sha256": "0dd95f58d6ba575de4e58ab6f903c22a6873e12d9e335935e4541e0e29642129"
+    },
+    {
+      "path": "e2e/demo.spec.ts",
+      "sha256": "32e8d60369d8186700d7163abf88bc29df746b4651c4e8cca10fe37edd9e6f81"
+    },
+    {
+      "path": "next-env.d.ts",
+      "sha256": "1862ac4bbbc5192d4bf562161df66ea547ed3e67173100656ab606ae9797db2b"
+    },
+    {
+      "path": "next.config.ts",
+      "sha256": "6e2ee49f938c7164b3b8b01aee73a07049657828342dace1ca3e2a939c8e6fde"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "34e877f42453fa868231b5028d36b9eca2a8ad19c10e7691166f8771706d092e"
+    },
+    {
+      "path": "package.json",
+      "sha256": "4e41d524725cc2fa0da56666f9fa4c3951bcd1083bdbf14960647dc499e229cd"
+    },
+    {
+      "path": "playwright.config.ts",
+      "sha256": "935cf6c144475296352e6eae4b8bed5581e1b6e9fad8b58b94888124b7baf944"
+    },
+    {
+      "path": "postcss.config.mjs",
+      "sha256": "f50058e0d309cdb3e7c25a1123337338641fb71e988572607d57f47209db1fd1"
+    },
+    {
+      "path": "prisma/schema.prisma",
+      "sha256": "f7280c42328be1fe118ff0ae8f3f025f09c05d7abc7fd77ecedfdef2b7b707bc"
+    },
+    {
+      "path": "public/samples/ambiguous.json",
+      "sha256": "68e3d5c287a23f760e885a03bfee91c9cd1b9027601fa4c275eb58bd26ed03c2"
+    },
+    {
+      "path": "public/samples/ambiguous.pdf",
+      "sha256": "72de34e739c1e4ecaa825dce5e17f743e3529ae80b667058e6250f28250ef43d"
+    },
+    {
+      "path": "public/samples/approval.json",
+      "sha256": "e46a39298ac7b6ec79c277e0491c21e3c85bf6685f5ed6f95acf7d2859fa6820"
+    },
+    {
+      "path": "public/samples/approval.pdf",
+      "sha256": "c329282fc74564fe2c565b81971a38de1f42f1de43e39b96829779cab46e8f12"
+    },
+    {
+      "path": "public/samples/failure.json",
+      "sha256": "a8a8f82575e9e1e4e9c01eea81bcbbf51ba23352d2b75efa1dc69f69c5421835"
+    },
+    {
+      "path": "public/samples/failure.pdf",
+      "sha256": "f78c22133b565716523dd5ed34490ce1db938759526986a5aa9cfc16930da014"
+    },
+    {
+      "path": "public/samples/happy.json",
+      "sha256": "b5c5b16ecffa5e3578907feb98d53222934485dc498db5a34aa1c43de3487f94"
+    },
+    {
+      "path": "public/samples/happy.pdf",
+      "sha256": "b2278a04a4f0ccb3da6ceb8cde47a72a6d29459fed2b14cb2260fc7da12dae3e"
+    },
+    {
+      "path": "README.md",
+      "sha256": "f7f54bce77ba01736121215a7f4b50a03d3a37f90106d7a73fa4cb1e68f80dff"
+    },
+    {
+      "path": "scripts/create-samples.ts",
+      "sha256": "6870786b0c73368a0fae7bae6d58128dc7785d4143498f365d9c46e4c6f2aee7"
+    },
+    {
+      "path": "scripts/e2e-server.mjs",
+      "sha256": "b33d31ab96ccf150cba613879249e0b3e4382e481c2cb9fa2890a1bd6a1cc667"
+    },
+    {
+      "path": "scripts/init-db.mjs",
+      "sha256": "79c8c4c08f5969a58fce782262c1fdbbd759f3309a3f78963d076332bac388da"
+    },
+    {
+      "path": "scripts/reset-demo.mjs",
+      "sha256": "895faa4a70e7a9c9b39d80490571ec016667bd41dda5ad6dd6883d200f972277"
+    },
+    {
+      "path": "scripts/write-delivery-review.mjs",
+      "sha256": "8cad115da84b3934c9f00340a00910aa29c89e116ab5226ba20ad815b33991d9"
+    },
+    {
+      "path": "src/ai/bill-understanding.ts",
+      "sha256": "0a31318a72af0f3fd23f18f4cde337edff69e1c5f3e1595b9cd834865d90b312"
+    },
+    {
+      "path": "src/ai/samples.ts",
+      "sha256": "2def749642d1b8fd885aa23847f37b83ccfb70b6add5135fbed86e9363b98c66"
+    },
+    {
+      "path": "src/app/api/bills/route.ts",
+      "sha256": "946b5140a960be7f9515f972ba7d72dda6eaf7ebe37409a1cb86015cca383936"
+    },
+    {
+      "path": "src/app/api/bills/[id]/route.ts",
+      "sha256": "f985ca19531fcc1d77be7dfa7fb9e1aa0cf80946d0d5c69f234ae6d6b5df7a31"
+    },
+    {
+      "path": "src/app/api/documents/[id]/route.ts",
+      "sha256": "fee23d5c2777f3e05cee34b583f175f9601e0de2b4e0aef98785eb18752567bc"
+    },
+    {
+      "path": "src/app/api/session/route.ts",
+      "sha256": "6b5047f42b719282a22b1baad9a5cb21c96cdc46af336b28118d632d763afd73"
+    },
+    {
+      "path": "src/app/approvals/page.tsx",
+      "sha256": "1b58e6c38f08f80ee79a6533febb2a7cf0edc557a2d7b0ee0c1d952e5a81d3db"
+    },
+    {
+      "path": "src/app/bills/page.tsx",
+      "sha256": "560923a4ddde4afe9f28d10379e79bce0fffa759f546587c3c9119d6316b0969"
+    },
+    {
+      "path": "src/app/bills/[id]/page.tsx",
+      "sha256": "17b2bd7ccd72341e9d85374ef517d1cb13936ec268edb3ac6b961a97e8dae7ca"
+    },
+    {
+      "path": "src/app/error.tsx",
+      "sha256": "e5312238e42fa082e1fdf5247d586218248e4752f479a91e77bc42101fa43c5c"
+    },
+    {
+      "path": "src/app/globals.css",
+      "sha256": "fee69f65aaf4fb8f3f5e550bb1e787177e5b357635caf9343d1dcb64d94cfd98"
+    },
+    {
+      "path": "src/app/layout.tsx",
+      "sha256": "bbb436eedd4d398827d75e8e76334f603d474e3bba182df09300dd667e1f83d1"
+    },
+    {
+      "path": "src/app/loading.tsx",
+      "sha256": "6f5f022874f0ecbab3d51901c8c97c7d1ba3aa48e90eecb8d7a429dd20b9ef5d"
+    },
+    {
+      "path": "src/app/not-found.tsx",
+      "sha256": "40b237534df45128b4580833fb43ae06ba4c73d3e7b0ba02fa08251b27e016d0"
+    },
+    {
+      "path": "src/app/page.tsx",
+      "sha256": "d195caa467c2bf64b96cfd4a6e4472c79ac0412a42a79bcf22cd7fefbc159d37"
+    },
+    {
+      "path": "src/app/policies/page.tsx",
+      "sha256": "a0ca5f84d06213e530e4dfde991a394ea2b50a38c5de95ac2ce041a477bcc49e"
+    },
+    {
+      "path": "src/app/properties/page.tsx",
+      "sha256": "53dff6cfcbc93b5494f83b9766faa3f2c334ad336befb01cdc579df1a203f071"
+    },
+    {
+      "path": "src/app/review/page.tsx",
+      "sha256": "dedc5d81079e38899b70b069c38566664801e860da51a12d196e62991206bc3e"
+    },
+    {
+      "path": "src/app/upload/page.tsx",
+      "sha256": "485b4732e9be9fdfa670d4cc2e701b23595586bc3c61519869fd2290d0301871"
+    },
+    {
+      "path": "src/app/vendors/page.tsx",
+      "sha256": "4def4376ac5543bf075ef4fafd8a6329a0428338d95a4d6c73b3cb3fb205b473"
+    },
+    {
+      "path": "src/components/bill-detail.tsx",
+      "sha256": "4e4ffcf1eb9c3c8ed34b97d4609aa7c20f31866df644beda746468f6aad3a7a8"
+    },
+    {
+      "path": "src/components/bills-table.tsx",
+      "sha256": "cf6fcb806b20004d6c18d6253e5372043be2db4d83d34707b2fd5cc62e904e5e"
+    },
+    {
+      "path": "src/components/page-heading.tsx",
+      "sha256": "e0e8f8773a0da1242b16efec5b4501278b1670f965982445d952e19a756ea5c0"
+    },
+    {
+      "path": "src/components/shell.tsx",
+      "sha256": "fb137b508677fb0886151cbb14832a5289892b4b0712b7565ba3f06d16a8d56c"
+    },
+    {
+      "path": "src/components/status.tsx",
+      "sha256": "12288ab043611810d451880e8399deeccd3b4ddacf6344a2f46e677bdc33c0bb"
+    },
+    {
+      "path": "src/components/ui/badge.tsx",
+      "sha256": "2bdfd996ba4ee37daddb5aaa9a33cfab61163d5b8761ddbad2069f8df2bf8246"
+    },
+    {
+      "path": "src/components/ui/button.tsx",
+      "sha256": "56d87f25b09342adede5728309b061c8197054fb8987b95d60df359552ac8a8e"
+    },
+    {
+      "path": "src/components/ui/card.tsx",
+      "sha256": "34117e5352d4cc9b49a73546ae39bcd15887f82eedecb13a2414003f35b83db5"
+    },
+    {
+      "path": "src/components/ui/input.tsx",
+      "sha256": "cddd2a11d7f939de117ab2b47070c0bf044683d0ea0c1e40d0c5082b90d8d85b"
+    },
+    {
+      "path": "src/components/ui/table.tsx",
+      "sha256": "59a3d9d7ebe9a3812d20f948a243e0b4ea191523f96a5e2dc098398cea339e7c"
+    },
+    {
+      "path": "src/components/ui/textarea.tsx",
+      "sha256": "c87dcda9cf319543d47b42ebd3d63ee8c98e14711169205a79add6520d45df53"
+    },
+    {
+      "path": "src/components/upload-form.tsx",
+      "sha256": "e8812e35980570118f4971487baa320b69f6ecdaad2df76322ced9d57f794152"
+    },
+    {
+      "path": "src/database/client.ts",
+      "sha256": "e43e4d91e2a250c2b047f435b3d6be2bde8d2254fdedbbcf73e7d996cf57a611"
+    },
+    {
+      "path": "src/database/seed.ts",
+      "sha256": "df9fd366e466898b716fc7e2ff5347016c96ea4fc4dbca02920a271d96d267d9"
+    },
+    {
+      "path": "src/domain/approvals/approval-policy.ts",
+      "sha256": "231be1cb0cce6f46da8aadca1e2c1e84bc853f4f23b6854d117b776120a4e135"
+    },
+    {
+      "path": "src/domain/bills/duplicate-check.ts",
+      "sha256": "7b1d7dac596d051db40712b101bab1aed889c2e939d73a33df6811d62934d4d0"
+    },
+    {
+      "path": "src/domain/bills/state-machine.ts",
+      "sha256": "d8473e5ed782ee8510870d708bcd4fca9f3051ea77e5f4ec9a76f8cf29acf651"
+    },
+    {
+      "path": "src/domain/bills/types.ts",
+      "sha256": "8bb586624290d07d9237a8c7f7b4bcaf0e13bdb445daca47131d2be519882e50"
+    },
+    {
+      "path": "src/domain/matching/bill-matcher.ts",
+      "sha256": "dbcece75d0b37b5c7b3d09cfa0a83101aba5a37025854b0175abe87e4a7de890"
+    },
+    {
+      "path": "src/domain/payments/payment-guards.ts",
+      "sha256": "09bb29bc66d4ea739e9ae4b841ebcb73e54437c9545950661f7069937fec4f1e"
+    },
+    {
+      "path": "src/domain/payments/payment-provider.ts",
+      "sha256": "e94c4483b907876f4826327616131149733303f5473bfb6bb0ca3ffa46fcd9a0"
+    },
+    {
+      "path": "src/domain/risk/risk-evaluator.ts",
+      "sha256": "e1020449828444a02879c62e44086966943d74d413fff02aa144f0a4ec8a3b59"
+    },
+    {
+      "path": "src/lib/utils.ts",
+      "sha256": "75093eb492b35a77b095f61e772f02a2e1cab90253d355ea5102aa6aefa9a4ee"
+    },
+    {
+      "path": "src/services/audit.ts",
+      "sha256": "83cddc782e1ce3f255db6ee9b48c55b2667ad1b365f921ca9373793f4260e969"
+    },
+    {
+      "path": "src/services/human-actions.ts",
+      "sha256": "289115cf5726129bf093c1458d30a8b388d77b6eaaf9a16b54a1b2b0db41a0e4"
+    },
+    {
+      "path": "src/services/payment-service.ts",
+      "sha256": "9b0f4f6f888ae9ae2743e4ef32ece9db76d84adc5eed56e52bf73b11bd6b0bec"
+    },
+    {
+      "path": "src/services/queries.ts",
+      "sha256": "8a0a0fefc247b8e35d3820cac8ed9f9f773061252111fb836718b7ea97d0d4f4"
+    },
+    {
+      "path": "src/services/session.ts",
+      "sha256": "a3d9e5c86e7549c08ca1d5030e0daf5ebc15720a9edd8612c5e810b74b81231d"
+    },
+    {
+      "path": "src/workflows/bill-workflow.ts",
+      "sha256": "4758188ae87f3911233c1f03b6321217bfa7da15b411223c467f1b3802264e94"
+    },
+    {
+      "path": "tests/domain.test.ts",
+      "sha256": "52c3cf4ae73ca72b8bff6c4585ef048feed7a7e13120db25b9aff0a82b6df05f"
+    },
+    {
+      "path": "tests/workflow.test.ts",
+      "sha256": "c2cb05d8a0a7e7a82d8cb877b5a132bd5160f861c6b65396a3b20100a7239d4e"
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "e4b295939259bb8a87de5a8a7e6ae761fa6717f1f75b743ff41b9b2916432b15"
+    }
+  ]
+}

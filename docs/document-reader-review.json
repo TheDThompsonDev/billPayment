@@ -1,0 +1,112 @@
+{
+  "token": null,
+  "tokenSource": "No active hook supplied a session token or packet path; automatic enforcement is unverified.",
+  "response": "Your key works, and the updated app is running locally. New uploads now use document AI to interpret the original pages, with supporting passages saved for review.\n\n`Invoice → AI extraction → validation → property acceptance`\n\nCedar Valley’s six required fields are recovered. It now awaits property acceptance. [Open your bill](http://127.0.0.1:3002/bills/cmv2wpbt6000037ac7jsug9kw).\n\nVerified: **7 live document checks, 43 automated tests, and 8 browser regression tests**, plus a fresh upload through the live reader. Ambiguous or unreadable documents can still require review.\n\nSay expand for details.",
+  "status": "ready",
+  "checks": [
+    {
+      "criterion": "General interpretation replaces silent invoice-specific fallback",
+      "result": "passed",
+      "evidence": "Original PDF/image reader is default for nonfixtures; explicit offline mode only. Seven real model evaluations passed, including an unseen multi-page invoice, image input and negative cases."
+    },
+    {
+      "criterion": "Persistence, configuration failures and financial workflow remain correct",
+      "result": "passed",
+      "evidence": "npm test: 43/43. Schema evidence column added after backup. Fresh live UI upload and Cedar reread retain evidence and stop at property acceptance with no payment."
+    },
+    {
+      "criterion": "Production UI and regression behavior work",
+      "result": "passed",
+      "evidence": "npm run build and TypeScript passed; full Chromium suite 8/8; live upload/reload/mobile check passed without console errors or horizontal overflow. Source evidence screenshot visually inspected."
+    },
+    {
+      "criterion": "Limits and task outcome are clearly delivered",
+      "result": "passed",
+      "evidence": "Exact response reports tested outcomes and ambiguity limits; detailed verification records corpus size, synthetic image limits, model-reported provenance, headless preview limitation, and unverified completion hook."
+    }
+  ],
+  "humanReview": {
+    "answersRequest": true,
+    "understandable": true,
+    "visualAddsInformation": true,
+    "limitationsDisclosed": true
+  },
+  "artifacts": [
+    {
+      "path": "src/ai/document-reader.ts",
+      "sha256": "e408866bb5813ac235826d86f26f18c272ade431ee85baf1499519205c716e12"
+    },
+    {
+      "path": "src/ai/bill-understanding.ts",
+      "sha256": "44f20b3cc65cf03f9888e3d53ed213764a860964832746c7f78892f9b1d30915"
+    },
+    {
+      "path": "src/workflows/bill-workflow.ts",
+      "sha256": "120e8c845a6c0feec44e8bf3a89976aba485923c920a5eadd47e54220e57bf9d"
+    },
+    {
+      "path": "src/services/human-actions.ts",
+      "sha256": "05591ec245a320acc68f5ba4504f5346fd1ea95fd8b89be18dcec1efe2d23102"
+    },
+    {
+      "path": "src/components/bill-detail.tsx",
+      "sha256": "d4bc899a76cc01af7fd40f5087b3868e7504853205e61318058d08f86aee670a"
+    },
+    {
+      "path": "src/components/upload-form.tsx",
+      "sha256": "aa9e823d4e1ae29f91c3fc8246cc2e7db99ce69757fb1b1290502a51c9b2b98d"
+    },
+    {
+      "path": "src/app/upload/page.tsx",
+      "sha256": "e44d57c70a9a037e1b68df67806e0322466dbf1b1548a771d702cf2bcf29ea49"
+    },
+    {
+      "path": "src/app/globals.css",
+      "sha256": "092b375ccb95a9120eb904f698c193ddc89d9d22200933c84a9a2e5becc8489d"
+    },
+    {
+      "path": "prisma/schema.prisma",
+      "sha256": "a2f962b75e153feb57251bc0d97c48859e369d0192fe1c57100a7f92c8faf17a"
+    },
+    {
+      "path": "tests/document-reader.test.ts",
+      "sha256": "80346a48d1d35e3397033e798639c80e9223756d41cde5a682655a145c46a718"
+    },
+    {
+      "path": "tests/workflow.test.ts",
+      "sha256": "f0ab3d87378b0c20b848af896979f98fe19c1e4d49c8c668329147dbdfb143c3"
+    },
+    {
+      "path": "tests/fixtures/cedar-valley-bill.pdf",
+      "sha256": "09e6f934faeb2afb27d46f84fbf99d923277154e4e2567840893207609517aa4"
+    },
+    {
+      "path": "scripts/evaluate-document-reader.ts",
+      "sha256": "1cf5f61ad0e900d8aa7fa5530ed8f306c6e1ca223f2ebfc371ebb2ddd62e010b"
+    },
+    {
+      "path": "scripts/e2e-server.mjs",
+      "sha256": "303061bfee891cdc0ae738d1adc7ff3e3b98d8b89b839106c637e2dbed4a5e2f"
+    },
+    {
+      "path": ".env.example",
+      "sha256": "8f2ec1036f76558906fe118732be113964b01359fdfea2c6d46fe5dd161030f0"
+    },
+    {
+      "path": "README.md",
+      "sha256": "7e4bc0510192f12d88a673ff70ed5f2d1cbe1e2d6ccc07b79efa7c43effa4517"
+    },
+    {
+      "path": "docs/impact-map.md",
+      "sha256": "4ec09d627b89264fee7ee6050c229c6e1b2d6658da89d08ec41d12e77ab66c42"
+    },
+    {
+      "path": "docs/verification.md",
+      "sha256": "4373a1e032fe9c3b1dbb38d4925ff4b498ae0d44814aa01b7008046e486827d1"
+    },
+    {
+      "path": "docs/document-reader-results.json",
+      "sha256": "565aa3de284cac4699c92df92eb97af1eca9d381da52487c37193cda3da23268"
+    }
+  ]
+}

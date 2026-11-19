@@ -1,0 +1,198 @@
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "sqlite"
+  url = env("DATABASE_URL")
+}
+model User {
+  id String @id
+  name String
+  role String
+  approvals Approval[]
+  sessions Session[]
+}
+model Session {
+  id String @id
+  userId String
+  user User @relation(fields: [userId], references: [id])
+  expiresAt DateTime
+}
+model Property {
+  id String @id
+  name String
+  address String @unique
+  city String
+  units Int
+  status String @default("ACTIVE")
+  accounts VendorAccount[]
+  bills Bill[]
+  proposedBills Bill[] @relation("ProposedProperty")
+}
+model Vendor {
+  id String @id
+  name String @unique
+  category String
+  paymentMethod String
+  portalUrl String?
+  accounts VendorAccount[]
+  bills Bill[]
+}
+model VendorAccount {
+  id String @id
+  number String
+  vendorId String
+  propertyId String
+  active Boolean @default(true)
+  paymentMethod String
+  vendor Vendor @relation(fields: [vendorId], references: [id])
+  property Property @relation(fields: [propertyId], references: [id])
+  bills Bill[]
+  @@unique([vendorId, number])
+}
+model Bill {
+  id String @id @default(cuid())
+  status String @default("RECEIVED")
+  stage Int @default(0)
+  source String
+  documentName String
+  documentPath String?
+  documentType String?
+  documentHash String?
+  sampleKey String?
+  vendorId String?
+  propertyId String?
+  proposedPropertyId String?
+  accountId String?
+  invoiceNumber String?
+  amountCents Int?
+  dueDate DateTime?
+  paymentMethod String?
+  dedupeKey String? @unique
+  duplicateOfId String?
+  confidence Float?
+  findings String @default("[]")
+  matching String @default("{}")
+  validation String @default("[]")
+  riskAcknowledged Boolean @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  vendor Vendor? @relation(fields: [vendorId], references: [id])
+  property Property? @relation(fields: [propertyId], references: [id])
+  proposedProperty Property? @relation("ProposedProperty", fields: [proposedPropertyId], references: [id])
+  account VendorAccount? @relation(fields: [accountId], references: [id])
+  extraction BillExtraction?
+  approvals Approval[]
+  payment Payment?
+  reviews ReviewItem[]
+  events AuditEvent[]
+  navigation PaymentNavigation?
+}
+model BillExtraction {
+  id String @id @default(cuid())
+  billId String @unique
+  bill Bill @relation(fields: [billId], references: [id])
+  fields String
+  provider String
+  originalFields String
+  paymentUrls String @default("[]")
+  propertyName String?
+  evidence String @default("{}")
+  createdAt DateTime @default(now())
+}
+model PaymentNavigation {
+  id String @id @default(cuid())
+  billId String @unique
+  bill Bill @relation(fields: [billId], references: [id])
+  destination String?
+  source String
+  status String @default("NEEDS_DESTINATION")
+  verifiedBy String?
+  steps String @default("[]")
+  message String?
+  receipt String?
+  runToken String?
+  startedAt DateTime?
+  updatedAt DateTime @updatedAt
+}
+model PortalReceipt {
+  id String @id @default(cuid())
+  billId String @unique
+  vendorName String
+  accountNumber String
+  invoiceNumber String
+  amountCents Int
+  createdAt DateTime @default(now())
+}
+model ApprovalPolicy {
+  id String @id
+  name String
+  description String
+  minimumCents Int
+  maximumCents Int?
+  category String?
+  role String?
+  priority Int
+  approvals Approval[]
+}
+model Approval {
+  id String @id @default(cuid())
+  billId String
+  bill Bill @relation(fields: [billId], references: [id])
+  policyId String
+  policy ApprovalPolicy @relation(fields: [policyId], references: [id])
+  requiredRole String
+  status String @default("PENDING")
+  reason String
+  userId String?
+  user User? @relation(fields: [userId], references: [id])
+  note String?
+  createdAt DateTime @default(now())
+  decidedAt DateTime?
+}
+model Payment {
+  id String @id @default(cuid())
+  billId String @unique
+  bill Bill @relation(fields: [billId], references: [id])
+  status String
+  method String
+  amountCents Int
+  externalId String? @unique
+  idempotencyKey String @unique
+  createdAt DateTime @default(now())
+  completedAt DateTime?
+  attempts PaymentAttempt[]
+}
+model PaymentAttempt {
+  id String @id @default(cuid())
+  paymentId String
+  payment Payment @relation(fields: [paymentId], references: [id])
+  number Int
+  status String
+  externalId String?
+  reason String?
+  createdAt DateTime @default(now())
+  @@unique([paymentId, number])
+}
+model ReviewItem {
+  id String @id @default(cuid())
+  billId String
+  bill Bill @relation(fields: [billId], references: [id])
+  reasons String
+  status String @default("OPEN")
+  resolution String?
+  resolvedBy String?
+  createdAt DateTime @default(now())
+  resolvedAt DateTime?
+}
+model AuditEvent {
+  id String @id @default(cuid())
+  billId String
+  bill Bill @relation(fields: [billId], references: [id])
+  type String
+  title String
+  detail String
+  actor String @default("Workflow engine")
+  metadata String @default("{}")
+  createdAt DateTime @default(now())
+}

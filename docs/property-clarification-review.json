@@ -1,0 +1,20 @@
+{
+  "token": null,
+  "tokenSource": "No session token supplied; automatic enforcement is unverified.",
+  "response": "The remaining blocker is **property setup**. The app extracted the address, but Alder Creek Workshop isn’t in its property directory—and this form only lets you select an existing property.\n\nInvoice details recovered → property missing → workflow paused\n\n“0% confidence” means **no existing relationship found**, not that the invoice is unreadable. That wording is misleading.\n\nFor new properties, should the app **create them automatically from the invoice**, or **prefill the details and let you confirm once**? I recommend the second option so a billing address isn’t accidentally registered as a service property.",
+  "status": "ready",
+  "checks": [
+    {
+      "criterion": "Explain screenshot and identify the unresolved product choice",
+      "result": "passed",
+      "evidence": "Current screenshot shows populated invoice fields, no confirmed property and zero relationship confidence. Prior directory query found no Springfield property; onboarding only links existing active properties."
+    }
+  ],
+  "humanReview": {
+    "answersRequest": true,
+    "understandable": true,
+    "visualAddsInformation": true,
+    "limitationsDisclosed": true
+  },
+  "artifacts": []
+}

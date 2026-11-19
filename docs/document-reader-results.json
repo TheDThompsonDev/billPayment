@@ -1,0 +1,82 @@
+{
+  "evaluatedAt": "2026-10-10T21:36:17.089Z",
+  "model": "gpt-4.1-mini",
+  "liveCases": [
+    {
+      "name": "Alder PDF",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "Brightwater PDF",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "Cedar PDF",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "Brightwater image",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "Unseen two-page invoice",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "Missing deadline",
+      "passed": true,
+      "mismatches": []
+    },
+    {
+      "name": "Resume rejection",
+      "passed": true,
+      "error": "NOT_AN_INVOICE"
+    }
+  ],
+  "browser": {
+    "passed": true,
+    "freshUpload": "http://127.0.0.1:3002/bills/cmv2x23e7000e372gb2oswk2o",
+    "provider": "Document AI · gpt-4.1-mini",
+    "fields": {
+      "vendorName": {
+        "value": "Juniper Lift Services",
+        "confidence": 0.99
+      },
+      "accountNumber": {
+        "value": "000792",
+        "confidence": 0.95
+      },
+      "invoiceNumber": {
+        "value": "JL-840",
+        "confidence": 0.98
+      },
+      "amount": {
+        "value": 421,
+        "confidence": 0.99
+      },
+      "dueDate": {
+        "value": "2026-11-12",
+        "confidence": 0.98
+      },
+      "serviceAddress": {
+        "value": "20 Lake Street, Madison, WI 53703",
+        "confidence": 0.97
+      }
+    },
+    "pendingProperty": {
+      "id": "property-f349a942744a9105174f743a59d2b2ec",
+      "name": "Harbor Lofts",
+      "address": "20 Lake Street, Madison, WI 53703",
+      "city": "Madison",
+      "units": 0,
+      "status": "PENDING_ACCEPTANCE"
+    },
+    "payment": null,
+    "consoleErrors": []
+  }
+}

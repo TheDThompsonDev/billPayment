@@ -1,0 +1,38 @@
+{
+  "verifiedAt": "2026-10-10T21:52:24.050Z",
+  "billId": "cmv2x5hp6000x372g80f6occh",
+  "status": "PAID",
+  "amountCents": 51870,
+  "receipt": "PAY-DB61770F",
+  "localAttempts": 1,
+  "remoteBill": {
+    "id": "BILL-1001",
+    "description": "Commercial waste collection — four weekly pickups",
+    "amountCents": 51870,
+    "dueDate": "2026-10-16",
+    "createdAt": "2026-10-02T14:10:19.308Z",
+    "status": "paid",
+    "paidAt": "2026-10-10T21:51:42.661Z"
+  },
+  "remotePayment": {
+    "id": "PAY-DB61770F",
+    "requestId": "a84785ac-5e10-4a33-b1b4-65a80af73208",
+    "billId": "BILL-1001",
+    "amountCents": 51870,
+    "method": "One-time ACH (checking) •• 6789",
+    "status": "succeeded",
+    "createdAt": "2026-10-10T21:51:42.661Z"
+  },
+  "previews": [
+    {
+      "site": "brightwater",
+      "reachedReview": true,
+      "error": "Preview complete; final submission intentionally not sent."
+    },
+    {
+      "site": "northline",
+      "reachedReview": true,
+      "error": "Preview complete; final submission intentionally not sent."
+    }
+  ]
+}

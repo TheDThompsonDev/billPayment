@@ -1,0 +1,63 @@
+{
+  "token": null,
+  "tokenSource": "No session hook token supplied; automatic enforcement is unverified.",
+  "response": "Fixed your Brightwater upload and reprocessed it. My earlier fix missed standalone headings and labels such as “Net amount payable” and “PROPERTY / SERVICE LOCATION.”\n\nMissing fields → all six recovered → property acceptance\n\nIt now reads account **2000456701**, **$324.16**, the invoice number, due date, vendor and address. The customer name and payment link are retained too.\n\n[Open the corrected bill](http://127.0.0.1:3002/bills/cmv2whey4000037agu7grxz0h). It reuses the pending property at the same address and still needs your acceptance.\n\n**36 tests, two browser scenarios and the build pass.** The offline reader remains pattern-based; unfamiliar layouts can still require review.\n\nSource: :codex-file-citation{path=\"C:/Users/danny/Documents/coding/cycstack/billPayment/tests/fixtures/brightwater-bill.pdf\" purpose=\"source\"}\n\nSay expand for details.",
+  "status": "ready",
+  "checks": [
+    {
+      "criterion": "Latest uploaded bill retains all printed fields through full flow",
+      "result": "passed",
+      "evidence": "Exact PDF regression, live reread/advance API and rendered evidence show all six fields, customer name and payment link. Validation passes; original evidence retained."
+    },
+    {
+      "criterion": "Shared parser retains conflict safeguards and prior layout support",
+      "result": "passed",
+      "evidence": "36 tests pass; repeated amount/date normalization, contradictory/malformed cases and exact Alder/Brightwater PDF tests. Next build/typecheck passes."
+    },
+    {
+      "criterion": "Browser behavior and honest pending relationship",
+      "result": "passed",
+      "evidence": "Two production browser scenarios pass. Live screenshot inspected: pending address reused, differing invoice recipient displayed; no property acceptance/payment performed."
+    }
+  ],
+  "humanReview": {
+    "answersRequest": true,
+    "understandable": true,
+    "visualAddsInformation": true,
+    "limitationsDisclosed": true
+  },
+  "artifacts": [
+    {
+      "sha256": "2215749dbf50444e8ba887f18cc46c8bdd16cda1bc6e79c13103784a379b28ef",
+      "path": "src/ai/pdf-text-understanding.ts"
+    },
+    {
+      "sha256": "4b7eee49c53a83d4de9d6357f6505dd15f66a280e486e16f057ee0eeaeff3231",
+      "path": "src/components/bill-detail.tsx"
+    },
+    {
+      "sha256": "972428f2e5f2fbbb274edb09eae687c58328a83de3c72f82de52b7ca530f5a9f",
+      "path": "src/workflows/bill-workflow.ts"
+    },
+    {
+      "sha256": "3fd3f069b124771c48180bd5f0f6e78fd802710481e912b34696a184bf643dc5",
+      "path": "tests/pdf-understanding.test.ts"
+    },
+    {
+      "sha256": "d19061f36e73992230eb60ae9d9c932c0cf28b3a0407b06b5d4d09a45d4750b6",
+      "path": "tests/fixtures/brightwater-bill.pdf"
+    },
+    {
+      "sha256": "ee6eabda53cbc7f90d18fa5cc5afe86a8028a4cd8f9d01419ae2a893629292a9",
+      "path": "e2e/demo.spec.ts"
+    },
+    {
+      "sha256": "7224038681bdab58699d4e7b911097fdb4ebf6718cefd126b9df7f73037b3cb9",
+      "path": "docs/impact-map.md"
+    },
+    {
+      "sha256": "21f38895c1032bb17e94ec4f72d6fb3237caa5f2018f16d8b6848a585d03f92f",
+      "path": "docs/verification.md"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "checks": [
+    {
+      "evidence": "Started Next.js on 127.0.0.1:3002; GET /upload returned HTTP 200 and contained Property Bill Automation and Follow the vendor.",
+      "result": "passed",
+      "criterion": "Local application is available"
+    }
+  ],
+  "status": "ready",
+  "token": null,
+  "response": "Running locally: [Open DSD Property Bill Automation](http://127.0.0.1:3002/upload). Verified the app responds successfully.\n\nUpload invoice → verify/approve → browser payment demo → receipt\n\nChoose **scenario 06** to try the browser payment demo. Payments remain simulated.\n\nSay expand for details.",
+  "humanReview": {
+    "limitationsDisclosed": true,
+    "visualAddsInformation": true,
+    "understandable": true,
+    "answersRequest": true
+  },
+  "tokenSource": "No session review token supplied; automatic hook enforcement is unverified.",
+  "artifacts": []
+}

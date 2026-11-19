@@ -1,0 +1,26 @@
+{
+  "vendorName": {
+    "value": "Reliable Plumbing",
+    "confidence": 0.99
+  },
+  "accountNumber": {
+    "value": "RP-1003",
+    "confidence": 0.99
+  },
+  "invoiceNumber": {
+    "value": "RP-7500",
+    "confidence": 0.99
+  },
+  "amount": {
+    "value": 7500,
+    "confidence": 0.99
+  },
+  "dueDate": {
+    "value": "2026-10-23",
+    "confidence": 0.99
+  },
+  "serviceAddress": {
+    "value": "4100 Preston Road, Frisco, TX",
+    "confidence": 0.99
+  }
+}

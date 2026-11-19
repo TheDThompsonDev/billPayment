@@ -1,0 +1,438 @@
+{
+  "token": null,
+  "tokenSource": "No active hook provided a token or packet path; agent-authored self-review only.",
+  "response": "Fixed: invoices can now create new vendors and property accounts automatically, then continue through the workflow.\n\nPDF → vendor + account → duplicate/risk checks → approval → simulated payment\n\nYour [Pine & Prairie invoice](http://127.0.0.1:3002/bills/cmuq8b596000z3758b2cg25hp) is linked to Oak Avenue Apartments and awaiting property-manager approval for **$2,418.73**. No re-upload needed. The app is on port 3002 because another app occupies 3000.\n\nVerified: 21 domain/workflow tests, 5 browser tests, and production build. Scans and uncertain fields still require review. Automatic delivery-hook enforcement remains unverified.\n\nSay expand for details.",
+  "status": "ready",
+  "checks": [
+    {
+      "criterion": "Unknown vendors are supported beyond seeded fixtures",
+      "result": "passed",
+      "evidence": "npm test: 21 passed, including generated PDF parsing, onboarding, reuse, duplicate protection, conflicting/inactive accounts, manual onboarding, and re-read preservation."
+    },
+    {
+      "criterion": "Complete browser workflow and normal approval rules",
+      "result": "passed",
+      "evidence": "npm run test:e2e: production build and five Chromium tests passed. Novel PDF creates vendor/account; property-manager approval leads to simulated payment; repeated upload rejected."
+    },
+    {
+      "criterion": "Existing user invoice repaired without resetting data",
+      "result": "passed",
+      "evidence": "Reprocessed cmuq8b596000z3758b2cg25hp: Pine & Prairie Electric, DEMO-875OA-1047, Oak Avenue Apartments, 241873 cents, AWAITING_APPROVAL/PROPERTY_MANAGER, no payment. Original evidence retained."
+    },
+    {
+      "criterion": "Human-ready UI and maintainability",
+      "result": "passed",
+      "evidence": "npm run typecheck passed; npm audit --omit=dev: zero vulnerabilities. Browser opened actual bill on port 3002; snapshot and docs/pine-prairie-invoice.png inspected. Review form labels, keyed defaults, parallel server reads, and server-only PDF dependency reviewed."
+    }
+  ],
+  "humanReview": {
+    "answersRequest": true,
+    "understandable": true,
+    "visualAddsInformation": true,
+    "limitationsDisclosed": true
+  },
+  "limitations": [
+    "Local PDF parser handles supported text layouts, not OCR.",
+    "No live paid AI call tested.",
+    "New vendors use OTHER / simulated CHECK and normal approval.",
+    "No supplied session token; automatic CYC hook enforcement unverified."
+  ],
+  "artifacts": [
+    {
+      "path": ".env.example",
+      "sha256": "434ac62ff32c8c6c2d1590d0605c3260594bb2eb9a12a03daaf9eb3c65d7d37f"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "1fd4554c8bc64f4f3b32602059f0d55dfecd70da681f7e3f85e4440339a9e7f3"
+    },
+    {
+      "path": ".prettierignore",
+      "sha256": "b4d780bd451289f2f703876a7c2a9d5e363e081f80bc355b2d565331843e5a52"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "63f2c50380ed6303237cce215ce27af1d620d094c215e28d1b1538a3c070e3bb"
+    },
+    {
+      "path": "CLAUDE.md",
+      "sha256": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49"
+    },
+    {
+      "path": "components.json",
+      "sha256": "856960145c5f071a8908e491bcb3fd71aadb7faeae209d7afe97b2b1f268c351"
+    },
+    {
+      "path": "docs/dashboard-review.png",
+      "sha256": "bf7a9fa5f122c1171e2dcac1986a3efc3bd87ff394ae0bf1a4f6d4c0da53be5f"
+    },
+    {
+      "path": "docs/dashboard.png",
+      "sha256": "0f24934ee4d80a0568eb477599bdb14928d734771a5801aa29c90aacf9f77e80"
+    },
+    {
+      "path": "docs/happy-path.png",
+      "sha256": "1f882af4061b16720c3665e4cdb6e3425d51ef9113eeaa1bfec38f7e4bf259c0"
+    },
+    {
+      "path": "docs/impact-map.md",
+      "sha256": "f55de60eec409549085b214ce8976ce4839596d8e69f281d20cd166fee04afdf"
+    },
+    {
+      "path": "docs/mobile-before.png",
+      "sha256": "7711ed51dadfc9f33ac1c281aff8329488a42d8fd3678e2b01c414f0db8f8caa"
+    },
+    {
+      "path": "docs/mobile-review.png",
+      "sha256": "423d06de895a76b246ed62bcff3b28d637962eb0800fe2dd7561cea2ebcf8781"
+    },
+    {
+      "path": "docs/new-vendor-onboarding.png",
+      "sha256": "2334a2b82bca0efc11490615c5be031d72d1058b9f63af61a294e327979a9a4d"
+    },
+    {
+      "path": "docs/pine-prairie-invoice.png",
+      "sha256": "6a00938ba963d07d2fa4b399ef99115d2bc096c55493edafdf8e91cb1f2a5d05"
+    },
+    {
+      "path": "docs/review-workflow.png",
+      "sha256": "0670d3645f92a324d508b9866b99464e27dc7b21807edbd839924a52aaf52875"
+    },
+    {
+      "path": "docs/sample-ambiguous-review.png",
+      "sha256": "312e1503e3f71f659a627271db5f11e55abf05f1503e779343dbe6621fc7cb1b"
+    },
+    {
+      "path": "docs/sample-approval-review.png",
+      "sha256": "05b2aac7c71a56abb4f82878264c6ea1f09668da42af459bbe937994c600d7fe"
+    },
+    {
+      "path": "docs/sample-failure-review.png",
+      "sha256": "6256b6970c0fd45e2ee59effdfd46771aa46b4c3f8be0103ab11ed5097a2865e"
+    },
+    {
+      "path": "docs/sample-review.png",
+      "sha256": "178c46c52f103d783321e4eceb098351117dfb8e2c8219b1a78d8193351d004b"
+    },
+    {
+      "path": "docs/upload-vendor-support.png",
+      "sha256": "788bc2573db3f93a528aa3d685a4334d9cf0c84bc823f161ed516654be6ee615"
+    },
+    {
+      "path": "docs/verification.md",
+      "sha256": "3a7d579602e3fb238da4ea30dca18d51046fe1ca3ec026010e14ff1789aa4d34"
+    },
+    {
+      "path": "e2e/demo.spec.ts",
+      "sha256": "d85a5895692c7017283228d7a452604644c9e94144d3db0444d0ce6ec45ce290"
+    },
+    {
+      "path": "next-env.d.ts",
+      "sha256": "1862ac4bbbc5192d4bf562161df66ea547ed3e67173100656ab606ae9797db2b"
+    },
+    {
+      "path": "next.config.ts",
+      "sha256": "499dacfe5417777741e7e0c7d8c8ed0807eeca18bbcd3cc143cb973d427b85da"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "71e5bb5a0abdc689062147812a7349bcb25b3cb80cd863d68c13f7d7ffa0761b"
+    },
+    {
+      "path": "package.json",
+      "sha256": "7160a615428d8889a91b63116a6594cbb7204452221e052990021b626a28a114"
+    },
+    {
+      "path": "playwright.config.ts",
+      "sha256": "935cf6c144475296352e6eae4b8bed5581e1b6e9fad8b58b94888124b7baf944"
+    },
+    {
+      "path": "postcss.config.mjs",
+      "sha256": "f50058e0d309cdb3e7c25a1123337338641fb71e988572607d57f47209db1fd1"
+    },
+    {
+      "path": "prisma/schema.prisma",
+      "sha256": "f7280c42328be1fe118ff0ae8f3f025f09c05d7abc7fd77ecedfdef2b7b707bc"
+    },
+    {
+      "path": "public/samples/ambiguous.json",
+      "sha256": "68e3d5c287a23f760e885a03bfee91c9cd1b9027601fa4c275eb58bd26ed03c2"
+    },
+    {
+      "path": "public/samples/ambiguous.pdf",
+      "sha256": "72de34e739c1e4ecaa825dce5e17f743e3529ae80b667058e6250f28250ef43d"
+    },
+    {
+      "path": "public/samples/approval.json",
+      "sha256": "e46a39298ac7b6ec79c277e0491c21e3c85bf6685f5ed6f95acf7d2859fa6820"
+    },
+    {
+      "path": "public/samples/approval.pdf",
+      "sha256": "c329282fc74564fe2c565b81971a38de1f42f1de43e39b96829779cab46e8f12"
+    },
+    {
+      "path": "public/samples/failure.json",
+      "sha256": "a8a8f82575e9e1e4e9c01eea81bcbbf51ba23352d2b75efa1dc69f69c5421835"
+    },
+    {
+      "path": "public/samples/failure.pdf",
+      "sha256": "f78c22133b565716523dd5ed34490ce1db938759526986a5aa9cfc16930da014"
+    },
+    {
+      "path": "public/samples/happy.json",
+      "sha256": "b5c5b16ecffa5e3578907feb98d53222934485dc498db5a34aa1c43de3487f94"
+    },
+    {
+      "path": "public/samples/happy.pdf",
+      "sha256": "b2278a04a4f0ccb3da6ceb8cde47a72a6d29459fed2b14cb2260fc7da12dae3e"
+    },
+    {
+      "path": "README.md",
+      "sha256": "345b350a259f6956b11d22d9be572ada5c23e41df15c30505e6c0110a06a1c0a"
+    },
+    {
+      "path": "scripts/create-samples.ts",
+      "sha256": "6870786b0c73368a0fae7bae6d58128dc7785d4143498f365d9c46e4c6f2aee7"
+    },
+    {
+      "path": "scripts/e2e-server.mjs",
+      "sha256": "b33d31ab96ccf150cba613879249e0b3e4382e481c2cb9fa2890a1bd6a1cc667"
+    },
+    {
+      "path": "scripts/init-db.mjs",
+      "sha256": "79c8c4c08f5969a58fce782262c1fdbbd759f3309a3f78963d076332bac388da"
+    },
+    {
+      "path": "scripts/reset-demo.mjs",
+      "sha256": "895faa4a70e7a9c9b39d80490571ec016667bd41dda5ad6dd6883d200f972277"
+    },
+    {
+      "path": "scripts/write-delivery-review.mjs",
+      "sha256": "8cad115da84b3934c9f00340a00910aa29c89e116ab5226ba20ad815b33991d9"
+    },
+    {
+      "path": "src/ai/bill-understanding.ts",
+      "sha256": "d45be562535512e352ac8ea0258441c640d4686a09aa7a91fcfce71fed2b9567"
+    },
+    {
+      "path": "src/ai/pdf-text-understanding.ts",
+      "sha256": "d1d28abb2ccc5db9f4522440e5227efc6af604f53e327583d4e682deec0358de"
+    },
+    {
+      "path": "src/ai/samples.ts",
+      "sha256": "2def749642d1b8fd885aa23847f37b83ccfb70b6add5135fbed86e9363b98c66"
+    },
+    {
+      "path": "src/app/api/bills/route.ts",
+      "sha256": "946b5140a960be7f9515f972ba7d72dda6eaf7ebe37409a1cb86015cca383936"
+    },
+    {
+      "path": "src/app/api/bills/[id]/route.ts",
+      "sha256": "8ce464284dc152ca809c8e4a8ae91fa0803d2c5f30be1eaaf1b31d91bfefc903"
+    },
+    {
+      "path": "src/app/api/documents/[id]/route.ts",
+      "sha256": "fee23d5c2777f3e05cee34b583f175f9601e0de2b4e0aef98785eb18752567bc"
+    },
+    {
+      "path": "src/app/api/session/route.ts",
+      "sha256": "6b5047f42b719282a22b1baad9a5cb21c96cdc46af336b28118d632d763afd73"
+    },
+    {
+      "path": "src/app/approvals/page.tsx",
+      "sha256": "1b58e6c38f08f80ee79a6533febb2a7cf0edc557a2d7b0ee0c1d952e5a81d3db"
+    },
+    {
+      "path": "src/app/bills/page.tsx",
+      "sha256": "560923a4ddde4afe9f28d10379e79bce0fffa759f546587c3c9119d6316b0969"
+    },
+    {
+      "path": "src/app/bills/[id]/page.tsx",
+      "sha256": "68fffacb6ed6a84447e10d71df9bf56874813436a3f7c25e2f3da7208ff59321"
+    },
+    {
+      "path": "src/app/error.tsx",
+      "sha256": "e5312238e42fa082e1fdf5247d586218248e4752f479a91e77bc42101fa43c5c"
+    },
+    {
+      "path": "src/app/globals.css",
+      "sha256": "fee69f65aaf4fb8f3f5e550bb1e787177e5b357635caf9343d1dcb64d94cfd98"
+    },
+    {
+      "path": "src/app/layout.tsx",
+      "sha256": "bbb436eedd4d398827d75e8e76334f603d474e3bba182df09300dd667e1f83d1"
+    },
+    {
+      "path": "src/app/loading.tsx",
+      "sha256": "6f5f022874f0ecbab3d51901c8c97c7d1ba3aa48e90eecb8d7a429dd20b9ef5d"
+    },
+    {
+      "path": "src/app/not-found.tsx",
+      "sha256": "40b237534df45128b4580833fb43ae06ba4c73d3e7b0ba02fa08251b27e016d0"
+    },
+    {
+      "path": "src/app/page.tsx",
+      "sha256": "d195caa467c2bf64b96cfd4a6e4472c79ac0412a42a79bcf22cd7fefbc159d37"
+    },
+    {
+      "path": "src/app/policies/page.tsx",
+      "sha256": "5b33e2c107b4c95108e009d910e901384ed5f537a43f7077c28dd0480b58a224"
+    },
+    {
+      "path": "src/app/properties/page.tsx",
+      "sha256": "53dff6cfcbc93b5494f83b9766faa3f2c334ad336befb01cdc579df1a203f071"
+    },
+    {
+      "path": "src/app/review/page.tsx",
+      "sha256": "dedc5d81079e38899b70b069c38566664801e860da51a12d196e62991206bc3e"
+    },
+    {
+      "path": "src/app/upload/page.tsx",
+      "sha256": "485b4732e9be9fdfa670d4cc2e701b23595586bc3c61519869fd2290d0301871"
+    },
+    {
+      "path": "src/app/vendors/page.tsx",
+      "sha256": "4def4376ac5543bf075ef4fafd8a6329a0428338d95a4d6c73b3cb3fb205b473"
+    },
+    {
+      "path": "src/components/bill-detail.tsx",
+      "sha256": "ff3a48c35931a85ffedacedb3a71baad3f449899ea72e9767a34926964105d12"
+    },
+    {
+      "path": "src/components/bills-table.tsx",
+      "sha256": "cf6fcb806b20004d6c18d6253e5372043be2db4d83d34707b2fd5cc62e904e5e"
+    },
+    {
+      "path": "src/components/page-heading.tsx",
+      "sha256": "e0e8f8773a0da1242b16efec5b4501278b1670f965982445d952e19a756ea5c0"
+    },
+    {
+      "path": "src/components/review-account-fields.tsx",
+      "sha256": "dd727f35eeda9b9a818673b926cff80664ece308b855aad4e17a9defaf8a9826"
+    },
+    {
+      "path": "src/components/shell.tsx",
+      "sha256": "fb137b508677fb0886151cbb14832a5289892b4b0712b7565ba3f06d16a8d56c"
+    },
+    {
+      "path": "src/components/status.tsx",
+      "sha256": "12288ab043611810d451880e8399deeccd3b4ddacf6344a2f46e677bdc33c0bb"
+    },
+    {
+      "path": "src/components/ui/badge.tsx",
+      "sha256": "2bdfd996ba4ee37daddb5aaa9a33cfab61163d5b8761ddbad2069f8df2bf8246"
+    },
+    {
+      "path": "src/components/ui/button.tsx",
+      "sha256": "56d87f25b09342adede5728309b061c8197054fb8987b95d60df359552ac8a8e"
+    },
+    {
+      "path": "src/components/ui/card.tsx",
+      "sha256": "34117e5352d4cc9b49a73546ae39bcd15887f82eedecb13a2414003f35b83db5"
+    },
+    {
+      "path": "src/components/ui/input.tsx",
+      "sha256": "cddd2a11d7f939de117ab2b47070c0bf044683d0ea0c1e40d0c5082b90d8d85b"
+    },
+    {
+      "path": "src/components/ui/table.tsx",
+      "sha256": "59a3d9d7ebe9a3812d20f948a243e0b4ea191523f96a5e2dc098398cea339e7c"
+    },
+    {
+      "path": "src/components/ui/textarea.tsx",
+      "sha256": "c87dcda9cf319543d47b42ebd3d63ee8c98e14711169205a79add6520d45df53"
+    },
+    {
+      "path": "src/components/upload-form.tsx",
+      "sha256": "d94ae52b321b63d8ddba95b17d6b8f4b08dbcd948c050c4b890518e0e2b0c74d"
+    },
+    {
+      "path": "src/database/client.ts",
+      "sha256": "e43e4d91e2a250c2b047f435b3d6be2bde8d2254fdedbbcf73e7d996cf57a611"
+    },
+    {
+      "path": "src/database/seed.ts",
+      "sha256": "df9fd366e466898b716fc7e2ff5347016c96ea4fc4dbca02920a271d96d267d9"
+    },
+    {
+      "path": "src/domain/approvals/approval-policy.ts",
+      "sha256": "231be1cb0cce6f46da8aadca1e2c1e84bc853f4f23b6854d117b776120a4e135"
+    },
+    {
+      "path": "src/domain/bills/duplicate-check.ts",
+      "sha256": "7b1d7dac596d051db40712b101bab1aed889c2e939d73a33df6811d62934d4d0"
+    },
+    {
+      "path": "src/domain/bills/state-machine.ts",
+      "sha256": "d8473e5ed782ee8510870d708bcd4fca9f3051ea77e5f4ec9a76f8cf29acf651"
+    },
+    {
+      "path": "src/domain/bills/types.ts",
+      "sha256": "72122a5de04959a2bc2e86e79dbcfc7ae5175b44c8eb7839f28f7718149b6bce"
+    },
+    {
+      "path": "src/domain/matching/bill-matcher.ts",
+      "sha256": "f3076ff8ce35eaeba1357f939a8b7bc675474baa9226868fe4836503f0e68e3d"
+    },
+    {
+      "path": "src/domain/payments/payment-guards.ts",
+      "sha256": "09bb29bc66d4ea739e9ae4b841ebcb73e54437c9545950661f7069937fec4f1e"
+    },
+    {
+      "path": "src/domain/payments/payment-provider.ts",
+      "sha256": "e94c4483b907876f4826327616131149733303f5473bfb6bb0ca3ffa46fcd9a0"
+    },
+    {
+      "path": "src/domain/risk/risk-evaluator.ts",
+      "sha256": "e1020449828444a02879c62e44086966943d74d413fff02aa144f0a4ec8a3b59"
+    },
+    {
+      "path": "src/lib/utils.ts",
+      "sha256": "75093eb492b35a77b095f61e772f02a2e1cab90253d355ea5102aa6aefa9a4ee"
+    },
+    {
+      "path": "src/services/audit.ts",
+      "sha256": "83cddc782e1ce3f255db6ee9b48c55b2667ad1b365f921ca9373793f4260e969"
+    },
+    {
+      "path": "src/services/human-actions.ts",
+      "sha256": "f0a7bb0dee6a54fe0b5c22f474b06f8401f3a2ece2faefa37bdc4ee83492f770"
+    },
+    {
+      "path": "src/services/payment-service.ts",
+      "sha256": "9b0f4f6f888ae9ae2743e4ef32ece9db76d84adc5eed56e52bf73b11bd6b0bec"
+    },
+    {
+      "path": "src/services/queries.ts",
+      "sha256": "8a0a0fefc247b8e35d3820cac8ed9f9f773061252111fb836718b7ea97d0d4f4"
+    },
+    {
+      "path": "src/services/session.ts",
+      "sha256": "a3d9e5c86e7549c08ca1d5030e0daf5ebc15720a9edd8612c5e810b74b81231d"
+    },
+    {
+      "path": "src/services/vendor-onboarding.ts",
+      "sha256": "48066f4aed02bded4f69ddb1d9dd166c7a7a1f4275f58d0400a2c9fe2a86b0a0"
+    },
+    {
+      "path": "src/workflows/bill-workflow.ts",
+      "sha256": "8716ea9ed1a4c4b478e53717d475ecd0fe92a704d1b4c067102aebf4571688a3"
+    },
+    {
+      "path": "tests/domain.test.ts",
+      "sha256": "52c3cf4ae73ca72b8bff6c4585ef048feed7a7e13120db25b9aff0a82b6df05f"
+    },
+    {
+      "path": "tests/pdf-understanding.test.ts",
+      "sha256": "fd379a8cd7d11e444837390286aa5fda124a976a71862d28ab26e0f0874c8b6a"
+    },
+    {
+      "path": "tests/workflow.test.ts",
+      "sha256": "bf3b2f8db0596a9bb83e5fed6556bdf574e38d858d1e69a1396c243e8fe16395"
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "e4b295939259bb8a87de5a8a7e6ae761fa6717f1f75b743ff41b9b2916432b15"
+    }
+  ]
+}

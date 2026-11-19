@@ -1,0 +1,46 @@
+{
+  "token": null,
+  "tokenSource": "No session review token supplied; automatic enforcement is unverified.",
+  "response": "This was a reader bug. With no AI key configured, the app used rigid text patterns: it expected “Account number” and “Due date,” but your PDF says “Account” and “Due.”\n\nI fixed the parser and reprocessed your saved bill.\n\nMissing fields → recovered details → property confirmation\n\nIt now reads **2000456700**, **BILL-1001**, **October 16, 2026**, the address, and the payment link. All 31 tests and the build pass; browser checks confirm the populated fields.\n\nIt still needs review because the Springfield property isn’t in the directory and the vendor/property relationship isn’t confirmed.\n\n[Open the updated bill](http://127.0.0.1:3002/bills/cmv2vp3rg000037mowe80c415).\n\nSource: :codex-file-citation{path=\"C:/Users/danny/Documents/coding/fakeElectric/output/pdf/alder-creek-bill.pdf\" purpose=\"source\"}\n\nSay expand for details.",
+  "status": "ready",
+  "checks": [
+    {
+      "criterion": "Exact uploaded PDF reads all six fields and payment URL",
+      "result": "passed",
+      "evidence": "npm test: 31 passing tests including exact PDF regression and conflicting/invalid input cases."
+    },
+    {
+      "criterion": "Persisted invoice reflects corrected evidence",
+      "result": "passed",
+      "evidence": "Reread and advance API calls succeeded; schema validation passes and original evidence/audit retained. Playwright confirmed populated account/invoice/date, visible address and zero page errors. Next production build passed."
+    }
+  ],
+  "humanReview": {
+    "answersRequest": true,
+    "understandable": true,
+    "visualAddsInformation": true,
+    "limitationsDisclosed": true
+  },
+  "artifacts": [
+    {
+      "path": "src/ai/pdf-text-understanding.ts",
+      "sha256": "325dbf7481a65e1f4eb7da042736f09826936076757edc0b037add0cc4f686bd"
+    },
+    {
+      "path": "tests/pdf-understanding.test.ts",
+      "sha256": "c4326d3ae868e97ba567d31b6d812cf3d4d34b1e49aa971ae504bd9098f4bc15"
+    },
+    {
+      "path": "tests/fixtures/alder-creek-bill.pdf",
+      "sha256": "e829c200b0bed4b1b58b8a62a1a353e28c303555cd7542df02ab69122af92537"
+    },
+    {
+      "path": "docs/impact-map.md",
+      "sha256": "a55104acf6afcf1edeef608f3f4989f62c2d530c8d35b62fb8324a3c2864ab57"
+    },
+    {
+      "path": "docs/verification.md",
+      "sha256": "309b3b7a43211ff5d473b61d721228167827f85bcb9af224631fe763f560a68a"
+    }
+  ]
+}
